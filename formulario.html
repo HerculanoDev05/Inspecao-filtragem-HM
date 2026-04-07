@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspeção Filtragem - HerculanoForms</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏭 HerculanoForms</h1>
+            <div class="workspace-info">
+                <p><strong>Workspace:</strong> Corredor Sul - Operações Vargem Grande</p>
+                <p><strong>Área:</strong> VPS Turno</p>
+            </div>
+        </div>
+
+        <div class="form-content">
+            <h2 class="form-title">Inspeção Filtragem</h2>
+            <p class="form-subtitle">Quando você enviar este formulário, ele não coletará automaticamente seus detalhes, como nome e endereço</p>
+
+            <form id="inspectionForm">
+                <!-- Inspetor / Turno -->
+                <div class="form-group">
+                    <label class="form-label">Inspetor:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="turno" id="turno1" value="Turno 1 - 07:00 ás 19:00">
+                            <label for="turno1">Turno 1 - 07:00 ás 19:00</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="turno" id="turno2" value="Turno 2 - 19:00 ás 07:00">
+                            <label for="turno2">Turno 2 - 19:00 ás 07:00</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Letra -->
+                <div class="form-group">
+                    <label class="form-label">Letra:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="letra" id="letraA" value="A">
+                            <label for="letraA">A</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="letra" id="letraB" value="B">
+                            <label for="letraB">B</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="letra" id="letraC" value="C">
+                            <label for="letraC">C</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="letra" id="letraD" value="D">
+                            <label for="letraD">D</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipamento -->
+                <div class="form-group">
+                    <label class="form-label">Equipamento:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="equipamento" id="ft01" value="FT 01">
+                            <label for="ft01">FT 01</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="equipamento" id="ft02" value="FT 02">
+                            <label for="ft02">FT 02</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="equipamento" id="ft03" value="FT 03">
+                            <label for="ft03">FT 03</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="equipamento" id="ft04" value="FT 04">
+                            <label for="ft04">FT 04</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="equipamento" id="ft05" value="FT 05">
+                            <label for="ft05">FT 05</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="equipamento" id="ft06" value="FT 06">
+                            <label for="ft06">FT 06</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="equipamento" id="ft07" value="FT 07">
+                            <label for="ft07">FT 07</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="equipamento" id="ft08" value="FT 08">
+                            <label for="ft08">FT 08</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="equipamento" id="ft09" value="FT 09">
+                            <label for="ft09">FT 09</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 20px; color: #1e3c72; margin: 30px 0 20px;">Inspeção Equipamento - Preencha apenas Itens Pendentes</h3>
+
+                <!-- Calha de Alimentação -->
+                <div class="form-group">
+                    <label class="form-label">Calha de Alimentação:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="calha" id="calhaOK" value="OK" data-toggle="calhaConditional">
+                            <label for="calhaOK">OK</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="calha" id="calhaPendente" value="Pendente" data-toggle="calhaConditional">
+                            <label for="calhaPendente">Pendente</label>
+                        </div>
+                    </div>
+                    <div id="calhaConditional" class="conditional-field">
+                        <label class="form-label">Descreva a pendência:</label>
+                        <textarea class="text-input" name="calhaDescricao" placeholder="Descreva a pendência encontrada..."></textarea>
+                        
+                        <div class="file-upload-container">
+                            <label class="form-label">Insira a foto:</label>
+                            <button type="button" class="file-upload-btn" onclick="document.getElementById('calhaFoto').click()">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                                Escolher arquivo
+                            </button>
+                            <input type="file" id="calhaFoto" class="file-input" accept="image/*" onchange="showFileName(this, 'calhaPreview')">
+                            <div id="calhaPreview" class="file-preview"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cabeçote sem Vazamento -->
+                <div class="form-group">
+                    <label class="form-label">Cabeçote sem Vazamento:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="cabecote" id="cabecoteOK" value="OK" data-toggle="cabecoteConditional">
+                            <label for="cabecoteOK">OK</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="cabecote" id="cabecotePendente" value="Pendente" data-toggle="cabecoteConditional">
+                            <label for="cabecotePendente">Pendente</label>
+                        </div>
+                    </div>
+                    <div id="cabecoteConditional" class="conditional-field">
+                        <label class="form-label">Descreva a pendência:</label>
+                        <textarea class="text-input" name="cabecoteDescricao" placeholder="Descreva a pendência encontrada..."></textarea>
+                        
+                        <div class="file-upload-container">
+                            <label class="form-label">Insira a foto:</label>
+                            <button type="button" class="file-upload-btn" onclick="document.getElementById('cabecoteFoto').click()">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                                Escolher arquivo
+                            </button>
+                            <input type="file" id="cabecoteFoto" class="file-input" accept="image/*" onchange="showFileName(this, 'cabecotePreview')">
+                            <div id="cabecotePreview" class="file-preview"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Válvulas Automáticas e Manuais -->
+                <div class="form-group">
+                    <label class="form-label">Válvulas Automáticas e Manuais:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="valvulas" id="valvulasOK" value="OK" data-toggle="valvulasConditional">
+                            <label for="valvulasOK">OK</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="valvulas" id="valvulasPendente" value="Pendente" data-toggle="valvulasConditional">
+                            <label for="valvulasPendente">Pendente</label>
+                        </div>
+                    </div>
+                    <div id="valvulasConditional" class="conditional-field">
+                        <label class="form-label">Descreva a pendência:</label>
+                        <textarea class="text-input" name="valvulasDescricao" placeholder="Descreva a pendência encontrada..."></textarea>
+                        
+                        <div class="file-upload-container">
+                            <label class="form-label">Insira a foto:</label>
+                            <button type="button" class="file-upload-btn" onclick="document.getElementById('valvulasFoto').click()">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                                Escolher arquivo
+                            </button>
+                            <input type="file" id="valvulasFoto" class="file-input" accept="image/*" onchange="showFileName(this, 'valvulasPreview')">
+                            <div id="valvulasPreview" class="file-preview"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tubulações e Conexões -->
+                <div class="form-group">
+                    <label class="form-label">Tubulações e Conexões:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="tubulacoes" id="tubulacoesOK" value="OK" data-toggle="tubulacoesConditional">
+                            <label for="tubulacoesOK">OK</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="tubulacoes" id="tubulacoesPendente" value="Pendente" data-toggle="tubulacoesConditional">
+                            <label for="tubulacoesPendente">Pendente</label>
+                        </div>
+                    </div>
+                    <div id="tubulacoesConditional" class="conditional-field">
+                        <label class="form-label">Descreva a pendência:</label>
+                        <textarea class="text-input" name="tubulacoesDescricao" placeholder="Descreva a pendência encontrada..."></textarea>
+                        
+                        <div class="file-upload-container">
+                            <label class="form-label">Insira a foto:</label>
+                            <button type="button" class="file-upload-btn" onclick="document.getElementById('tubulacoesFoto').click()">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                                Escolher arquivo
+                            </button>
+                            <input type="file" id="tubulacoesFoto" class="file-input" accept="image/*" onchange="showFileName(this, 'tubulacoesPreview')">
+                            <div id="tubulacoesPreview" class="file-preview"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pressão de Vácuo -->
+                <div class="form-group">
+                    <label class="form-label">Pressão de Vácuo:</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="pressaoVacuo" id="pressaoAdequada" value="De -0,70 bar a 0,8 bar = Performance adequada" data-toggle="pressaoConditional">
+                            <label for="pressaoAdequada">De -0,70 bar a 0,8 bar = Performance adequada</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="pressaoVacuo" id="pressaoInadequada" value="De -0,55 bar a 0,70 bar = Performance inadequada" data-toggle="pressaoConditional">
+                            <label for="pressaoInadequada">De -0,55 bar a 0,70 bar = Performance inadequada</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="pressaoVacuo" id="pressaoInaceitavel" value="Menor que -0,55 bar = Performance inaceitável" data-toggle="pressaoConditional">
+                            <label for="pressaoInaceitavel">Menor que -0,55 bar = Performance inaceitável</label>
+                        </div>
+                    </div>
+                    <div id="pressaoConditional" class="conditional-field">
+                        <label class="form-label">Verifique os parâmetros e descreva as pendências:</label>
+                        <textarea class="text-input" name="pressaoPendenciaDesc" placeholder="Descreva as pendências..."></textarea>
+                        
+                        <div class="file-upload-container">
+                            <label class="form-label">Insira a foto:</label>
+                            <button type="button" class="file-upload-btn" onclick="document.getElementById('pressaoFoto1').click()">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                                Escolher arquivo
+                            </button>
+                            <input type="file" id="pressaoFoto1" class="file-input" accept="image/*" onchange="showFileName(this, 'pressaoPreview1')">
+                            <div id="pressaoPreview1" class="file-preview"></div>
+                        </div>
+
+                        <label class="form-label" style="margin-top: 20px;">Verifique os parâmetros e acione a manutenção:</label>
+                        <textarea class="text-input" name="pressaoManutencao" placeholder="Descreva o acionamento da manutenção..."></textarea>
+                        
+                        <div class="file-upload-container">
+                            <label class="form-label">Insira a foto:</label>
+                            <button type="button" class="file-upload-btn" onclick="document.getElementById('pressaoFoto2').click()">
+                                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+                                Escolher arquivo
+                            </button>
+                            <input type="file" id="pressaoFoto2" class="file-input" accept="image/*" onchange="showFileName(this, 'pressaoPreview2')">
+                            <div id="pressaoPreview2" class="file-preview"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Procedimento do Hipoclorito -->
+                <div class="form-group">
+                    <label class="form-label">Foi realizado o procedimento do hipoclorito?</label>
+                    <select class="select-input" name="hipoclorito">
+                        <option value="">Selecione uma opção</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                        <option value="Não se aplica">Não se aplica</option>
+                    </select>
+                </div>
+
+                <!-- Jateamento dos Filtros -->
+                <div class="form-group">
+                    <label class="form-label">Foi realizado o jateamento dos filtros:</label>
+                    <select class="select-input" name="jateamento">
+                        <option value="">Selecione uma opção</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                        <option value="Não se aplica">Não se aplica</option>
+                    </select>
+                </div>
+
+                <!-- Procedimento MCT/BD -->
+                <div class="form-group">
+                    <label class="form-label">Foi realizado o procedimento de MCT/BD?</label>
+                    <select class="select-input" name="mctbd">
+                        <option value="">Selecione uma opção</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                        <option value="Não se aplica">Não se aplica</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js">
+
+    </script>
+</body>
+</html>
