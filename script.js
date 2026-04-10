@@ -54,8 +54,8 @@
             alert('Formulário enviado com sucesso!\n\nDados capturados no console.');
             
             // Exemplo de envio para webhook (descomente para usar)
-            /*
-            fetch('https://seu-webhook-url.com', {
+         
+            fetch('https://n8n.grupoherculano.tech/webhook-test/formulario-solicitacao', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -71,7 +71,7 @@
                 console.error('Erro:', error);
                 alert('Erro ao enviar formulário.');
             });
-            */
+            
         });
 
         // LocalStorage - Salvar progresso automaticamente
