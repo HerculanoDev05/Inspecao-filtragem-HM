@@ -55,7 +55,7 @@
             
             // Exemplo de envio para webhook (descomente para usar)
          
-            fetch('https://n8n.grupoherculano.tech/webhook-test/formulario-solicitacao', {
+            fetch('https://n8n.grupoherculano.tech/webhook/formulario-solicitacao', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
