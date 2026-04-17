@@ -6,7 +6,7 @@
 const WEBHOOK_CONFIG = {
   //url: 'https://n8n.grupoherculano.tech/webhook-test/formulario-filtragem',
 
-  url:'https://n8n.grupoherculano.tech/webhook/formulario-filtragem'
+  url:'https://n8n.grupoherculano.tech/webhook/formulario-filtragem',
   method: 'POST',
   headers: { 'Content-Type': 'application/json' }
 };
