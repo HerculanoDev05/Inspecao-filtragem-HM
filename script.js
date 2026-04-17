@@ -1,6 +1,6 @@
 // =====================================================
 // INSPEÇÃO FILTRAGEM - HerculanoForms
-// Com persistência de dados em caso de falha
+// Com persistência de dados em caso de falha do envio do formulario
 // =====================================================
 
 const WEBHOOK_CONFIG = {
